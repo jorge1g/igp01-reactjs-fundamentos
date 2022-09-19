@@ -10,7 +10,6 @@ export function Post() {
                         <strong>Jorge Luis</strong>
                         <span>Developer</span>
                     </div>
-
                 </div>
 
                 <time title="11 de maio às 08:15h" dateTime="2002-05-11 08:13:35">Publicado há 1h</time>
@@ -24,18 +23,22 @@ export function Post() {
                 <p>
                     <a href="">#novoprojeto </a>{' '}
                     <a>#nlw </a> {' '}
-                    <a>#rocketseat</a> {' '}
+                    <a>#rocketseat</a>
                 </p>
-                
-            </div>
-        
-        
-        
-        
-        
-        
-        
-        
+             </div>
+
+             <form className={stylesPost.commentForm}>
+                <strong>Deixe seu feedback</strong>
+
+                <textarea
+                    placeholder="Deixe seu comentário"
+                />
+                <footer>
+                    <button type="submit">Publicar</button>
+                </footer>
+
+             </form>
+
         </article>
 
     );
