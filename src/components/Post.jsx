@@ -7,8 +7,10 @@ import { Comment } from './Comment';
 
 import stylesPost from './Post.module.css';
 
+// Estado dos comentários. Comtrola quais comentários o Post tem.
 export function Post({ author, publishedAt, content } ) {
-    const [comments, setcomments] = useState([
+    // Lista de comentários e uma Função setComments
+    const [comments, setComments] = useState([
         "Post muito bacana, hein!?"
     ])
     const [newCommentText, setNewCommentText] = useState('')
@@ -25,13 +27,18 @@ export function Post({ author, publishedAt, content } ) {
     function handleCreateNewComment() {
         event.preventDefault()
          
-        setcomments([...comments, newCommentText]);
+        setComments([...comments, newCommentText]);
         setNewCommentText('');
         
     }
 
     function handleNewCommentChange() {
         setNewCommentText(event.target.value);
+    }
+    // Função	recebe qual comentário para remover
+    function deleteComment(comment) {
+        console.log(`Deletar Comentário ${comment}`);
+
     }
 
     return (
@@ -79,7 +86,13 @@ export function Post({ author, publishedAt, content } ) {
 
              <div className={stylesPost.commentList}>
                 {comments.map(comment => {
-                    return <Comment key={comment} content={comment}/>
+                    return (
+                        <Comment 
+                            key={comment} 
+                            content={comment} 
+                            onDeleteComment={deleteComment} 
+                        />
+                    )
                 })}
             </div>
 
